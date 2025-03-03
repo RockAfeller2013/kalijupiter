@@ -5,11 +5,11 @@
 
 #Update System
 echo Updating Apt!
-sudo apt-get -qq -y update
+sudo apt-get -y update
 
 #Install Basics
-sudo apt-get install -qq -y zip certbot python3-pip
-pip3 install awscli -q
+sudo apt-get install -y zip certbot python3-pip
+pip3 install awscli
 
 
 #Install Python PIP
@@ -20,11 +20,11 @@ pip3 install awscli -q
 
 #Install Juypter
 echo Installing Jupyter!
-pip3 install jupyter -q
-pip3 install --upgrade --force jupyter-console -q
-pip3 install pandas -q
-pip3 install openpyxl -q
-pip3 install bash_kernel -q
+pip3 install jupyter
+pip3 install --upgrade --force jupyter-console
+pip3 install pandas 
+pip3 install openpyxl 
+pip3 install bash_kernel 
 python3 -m bash_kernel.install
 mkdir /root/.jupyter/ssl
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=COUNTRY/ST=STATE/L=CITY/O=ORGANIZATION/CN=CNAME" -keyout /root/.jupyter/ssl/mykey.key -out /root/.jupyter/ssl/mycert.pem

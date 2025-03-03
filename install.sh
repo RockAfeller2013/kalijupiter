@@ -3,4 +3,4 @@
 sudo apt update && sudo apt install jupyter-notebook -y
 pip install bash_kernel
 python3 -m bash_kernel.install
-wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/Jupyter_OSINT.ipynb" && jupyter-notebook notebook.ipynb
+wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/Jupyter_OSINT.ipynb" && sudo jupyter-notebook notebook.ipynb

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Jupyter Install
-# sudo curl -sL https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/main/install.sh | bash
+# echo kali | sudo -S curl -sL https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/main/install.sh | bash
 
 
 #Update System

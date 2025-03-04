@@ -19,9 +19,9 @@ sudo apt-get install awscli -y
 #rm get-pip.py
 
 #Install Juypter
-sudo apt install -y python3-pip python3-venv zip certbot
+sudo apt install -y python3-pip python3-venv zip certbot screen
 pip3 install --break-system-packages jupyter pandas openpyxl bash_kernel 
-python3 -m bash_kernel.install
+sudo python3 -m bash_kernel.install
 
 # Verify Installation
 
@@ -32,10 +32,13 @@ jupyter kernelspec list
 
 
 # Setyp Jupiter
-mkdir /root/.jupyter/ssl
-openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=COUNTRY/ST=STATE/L=CITY/O=ORGANIZATION/CN=CNAME" -keyout /root/.jupyter/ssl/mykey.key -out /root/.jupyter/ssl/mycert.pem
+sudo mkdir /root/.jupyter/ssl
+sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=COUNTRY/ST=STATE/L=CITY/O=ORGANIZATION/CN=CNAME" -keyout /root/.jupyter/ssl/mykey.key -out /root/.jupyter/ssl/mycert.pem
 screen -dmS notebook jupyter-notebook --allow-root --notebook-dir /root/.jupyter
 
 # sudo apt update && sudo apt install jupyter-notebook -y
 
-sudo wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/Jupyter_OSINT.ipynb" && sudo jupyter-notebook --allow-root notebook.ipynb
+sudo wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/Jupyter_OSINT.ipynb" 
+cp notebook.ipynb /home/kali/
+jupyter-notebook --allow-root  /home/kali/notebook.ipynb  --notebook-dir /home/kali  
+

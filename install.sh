@@ -68,5 +68,11 @@ If running Jupyter as root, Nmap should work without additional permission chang
 !sudo apt install nmap -y
 !sudo nmap -sP 192.168.1.0/24
 
+------
+# Use this format to run commands inside the Python3 Jypter Kernal Notebook.
+import os
+os.system('nmap')
+------
+
 
 

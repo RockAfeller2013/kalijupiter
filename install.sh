@@ -42,6 +42,13 @@ sudo wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterP
 cp notebook.ipynb /home/kali/
 jupyter-notebook --allow-root  /home/kali/notebook.ipynb  --notebook-dir /home/kali  
 
+# Get Recon file
+
+sudo wget -O goad.ipynb "https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/refs/heads/main/GOAD.ipynb" 
+cp goad.ipynb /home/kali/
+jupyter-notebook --allow-root  /home/kali/goad.ipynb  --notebook-dir /home/kali  
+
+
 ## In order for Kali / bash command to work inside Jupiter Nootbook, Kernel | Change Kernel | Select Bash and set as default or click on the top right and select Bash.
 
 

@@ -42,3 +42,19 @@ sudo wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterP
 cp notebook.ipynb /home/kali/
 jupyter-notebook --allow-root  /home/kali/notebook.ipynb  --notebook-dir /home/kali  
 
+
+
+Allow Jupyter to Run sudo Commands If you get a permission denied error, it's because Jupyter might not have the necessary permissions to run sudo commands. You can do one of the following:
+Grant Sudo Permission to Your User: If you're running Jupyter as a non-root user, ensure that the user has permission to run sudo without a password. You can edit the sudoers file:
+sudo visudo
+Add the line (replace your-username with your actual username):
+
+your-username ALL=(ALL) NOPASSWD: ALL
+Use Jupyter with Root Privileges:
+If running Jupyter as root, Nmap should work without additional permission changes.
+
+!sudo apt install nmap -y
+!sudo nmap -sP 192.168.1.0/24
+
+
+

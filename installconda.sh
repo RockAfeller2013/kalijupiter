@@ -1,6 +1,7 @@
 # Install Anaconda
 # The command sudo apt install -y anaconda will not work in Kali Linux because Anaconda is not available in the default APT repositories.
 # https://www.anaconda.com/docs/getting-started/anaconda/install#macos-linux-installation
+# https://www.geeksforgeeks.org/how-to-install-jupyter-notebook-in-linux/#step-1-start-jupyter-notebook
 sudo curl -O https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
 echo yes | sudo bash Anaconda3-2024.10-1-Linux-x86_64.sh -b -p $HOME/anaconda3
 

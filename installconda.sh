@@ -16,3 +16,10 @@ source ~/.bashrc
 anaconda-navigator
 conda --version
 conda init
+
+echo y | conda create -n myenvironment python numpy pandas pytorch
+conda info --envs
+conda activate
+conda activate myenvironment 
+conda install -c anaconda jupyter
+jupyter notebook

@@ -2,6 +2,9 @@
 # Jupyter Install
 # echo kali | sudo -S curl -sL https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/main/install.sh | bash
 
+# Tools 
+sudo apt-get install -y crackmapexec nmap
+
 
 #Update System
 echo Updating Apt!

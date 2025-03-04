@@ -1,14 +1,5 @@
 #!/bin/bash
 # Setup of Bash as the default kernel in Jupyter Notebook using a script. Below is an example of a Bash script that installs the bash_kernel, configures Jupyter to use Bash as the default kernel, and ensures everything is set up correctly.
-
-# Install bash_kernel using pip
-echo "Installing bash_kernel..."
-pip install bash_kernel
-
-# Install the Bash kernel in Jupyter
-echo "Installing Bash kernel in Jupyter..."
-python -m bash_kernel.install
-
 # Generate Jupyter configuration file if it doesn't exist
 echo "Generating Jupyter configuration file..."
 jupyter notebook --generate-config

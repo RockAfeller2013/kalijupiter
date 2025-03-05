@@ -3,7 +3,7 @@
 # echo kali | sudo -S curl -sL https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/main/install.sh | bash
 
 # Tools 
-sudo apt-get install -y crackmapexec nmap nbtscan
+sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin smbclient enum4linux  enum4linux-ng
 
 
 #Update System

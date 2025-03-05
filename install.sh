@@ -41,38 +41,26 @@ screen -dmS notebook jupyter-notebook --allow-root --notebook-dir /root/.jupyter
 
 # sudo apt update && sudo apt install jupyter-notebook -y
 
-sudo wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/Jupyter_OSINT.ipynb" 
-cp notebook.ipynb /home/kali/
-jupyter-notebook --allow-root  /home/kali/notebook.ipynb  --notebook-dir /home/kali  
+sudo wget -O reconnaissance.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/reconnaissance.ipynb" 
+cp reconnaissance.ipynb /home/kali/
+jupyter-notebook --allow-root  /home/kali/reconnaissance.ipynb  --notebook-dir /home/kali  
+
 
 # Get Recon file
 
-sudo wget -O goad.ipynb "https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/refs/heads/main/GOAD.ipynb" 
-cp goad.ipynb /home/kali/
-jupyter-notebook --allow-root  /home/kali/goad.ipynb  --notebook-dir /home/kali  
+#sudo wget -O goad.ipynb "https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/refs/heads/main/GOAD.ipynb" 
+#cp goad.ipynb /home/kali/
+#jupyter-notebook --allow-root  /home/kali/goad.ipynb  --notebook-dir /home/kali  
 
 
 ## In order for Kali / bash command to work inside Jupiter Nootbook, Kernel | Change Kernel | Select Bash and set as default or click on the top right and select Bash.
+#Allow Jupyter to Run sudo Commands If you get a permission denied error, it's because Jupyter might not have the necessary permissions to run sudo commands. You can do one of the following:
+#Grant Sudo Permission to Your User: If you're running Jupyter as a non-root user, ensure that the user has permission to run sudo without a password. You can edit the sudoers file:
+#sudo visudo
+#Add the line (replace your-username with your actual username):
+#your-username ALL=(ALL) NOPASSWD: ALL
 
 
-
-Allow Jupyter to Run sudo Commands If you get a permission denied error, it's because Jupyter might not have the necessary permissions to run sudo commands. You can do one of the following:
-Grant Sudo Permission to Your User: If you're running Jupyter as a non-root user, ensure that the user has permission to run sudo without a password. You can edit the sudoers file:
-sudo visudo
-Add the line (replace your-username with your actual username):
-
-your-username ALL=(ALL) NOPASSWD: ALL
-Use Jupyter with Root Privileges:
-If running Jupyter as root, Nmap should work without additional permission changes.
-
-!sudo apt install nmap -y
-!sudo nmap -sP 192.168.1.0/24
-
-------
-# Use this format to run commands inside the Python3 Jypter Kernal Notebook.
-import os
-os.system('nmap')
-------
 
 
 

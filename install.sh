@@ -41,7 +41,7 @@ sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=COUNTRY/
 
 # sudo apt update && sudo apt install jupyter-notebook -y
 
-sudo wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/notebook.ipynb" 
+sudo wget -O notebook.ipynb "https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/refs/heads/main/notebook.ipynb" 
 cp notebook.ipynb /home/kali/
 jupyter-notebook --allow-root  /home/kali/notebook.ipynb  --notebook-dir /home/kali  
 

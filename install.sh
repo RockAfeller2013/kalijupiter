@@ -37,7 +37,7 @@ jupyter kernelspec list
 # Setyp Jupiter
 sudo mkdir /root/.jupyter/ssl
 sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=COUNTRY/ST=STATE/L=CITY/O=ORGANIZATION/CN=CNAME" -keyout /root/.jupyter/ssl/mykey.key -out /root/.jupyter/ssl/mycert.pem
-screen -dmS notebook jupyter-notebook --allow-root --notebook-dir /root/.jupyter
+# screen -dmS notebook jupyter-notebook --allow-root --notebook-dir /root/.jupyter
 
 # sudo apt update && sudo apt install jupyter-notebook -y
 

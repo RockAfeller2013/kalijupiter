@@ -1,1 +1,64 @@
 
+enum4linux -U <dc-ip> | grep 'user:'
+cme smb <ip> -u <user> -p '<password>' --users
+nmap -p 88 --script=krb5-enum-users --script-args="krb5-enum-users.realm='<domain>', userdb=<users_list_file>" <ip>
+cme smb <ip_range>  # enumerate smb hosts
+nmap -sP -p <ip>  # ping scan
+nmap -PN -sV --top-ports 50 --open <ip>  # quick scan
+nmap -PN --script smb-vuln* -p139,445 <ip>  # search smb vuln
+nmap -PN -sC -sV <ip>  # classic scan
+nmap -PN -sC -sV -p- <ip>  # full scan
+nmap -sU -sC -sV <ip>  # udp scan
+
+---------
+cme smb 192.168.56.1/24
+---------
+nmcli dev show eth0  # show domain name & dns
+nslookup -type=SRV _ldap._tcp.dc._msdcs.//DOMAIN/
+nslookup -type=srv _ldap._tcp.dc._msdcs.sevenkingdoms.local 192.168.56.10
+---------
+setup /etc/hosts and kerberos
+
+# /etc/hosts
+# GOAD
+192.168.56.10   sevenkingdoms.local kingslanding.sevenkingdoms.local kingslanding
+192.168.56.11   winterfell.north.sevenkingdoms.local north.sevenkingdoms.local winterfell
+192.168.56.12   essos.local meereen.essos.local meereen
+192.168.56.22   castelblack.north.sevenkingdoms.local castelblack
+192.168.56.23   braavos.essos.local braavos
+
+sudo apt install krb5-user
+
+---
+/etc/krb5.conf 
+
+[libdefaults]
+  default_realm = essos.local
+  kdc_timesync = 1
+  ccache_type = 4
+  forwardable = true
+  proxiable = true
+  fcc-mit-ticketflags = true
+[realms]
+  north.sevenkingdoms.local = {
+      kdc = winterfell.north.sevenkingdoms.local
+      admin_server = winterfell.north.sevenkingdoms.local
+  }
+  sevenkingdoms.local = {
+      kdc = kingslanding.sevenkingdoms.local
+      admin_server = kingslanding.sevenkingdoms.local
+  }
+  essos.local = {
+      kdc = meereen.essos.local
+      admin_server = meereen.essos.local
+  }
+...
+---
+
+dpkg-reconfigure krb5-config
+getTGT.py essos.local/khal.drogo:horse
+
+export KRB5CCNAME=/workspace/khal.drogo.ccache 
+smbclient.py -k @braavos.essos.local
+
+

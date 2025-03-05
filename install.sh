@@ -41,9 +41,9 @@ screen -dmS notebook jupyter-notebook --allow-root --notebook-dir /root/.jupyter
 
 # sudo apt update && sudo apt install jupyter-notebook -y
 
-sudo wget -O reconnaissance2.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/reconnaissance2.ipynb" 
-cp reconnaissance2.ipynb /home/kali/
-jupyter-notebook --allow-root  /home/kali/reconnaissance2.ipynb  --notebook-dir /home/kali  
+sudo wget -O notebook.ipynb "https://raw.githubusercontent.com/obheda12/JupyterPen/refs/heads/main/OSINT/notebook.ipynb" 
+cp notebook.ipynb /home/kali/
+jupyter-notebook --allow-root  /home/kali/notebook.ipynb  --notebook-dir /home/kali  
 
 
 # Get Recon file

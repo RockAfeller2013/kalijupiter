@@ -10,15 +10,13 @@ sudo apt update && sudo apt upgrade -y
 sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin smbclient enum4linux  enum4linux-ng
 
 #Install Basics
-sudo apt-get install -y zip certbot python3-pip
+sudo apt-get install -y zip certbot python3-pip python3-venv zip certbot screen jupyter-notebook
 sudo apt-get install awscli -y
 
 #Install Juypter
-sudo apt install -y python3-pip python3-venv zip certbot screen
 pip3 install --break-system-packages jupyter pandas openpyxl bash_kernel 
+pip3 install --upgrade --force jupyter-console
 sudo python3 -m bash_kernel.install
-pip3 install notebook
-# sudo apt update && sudo apt install jupyter-notebook -y
 
 # Verify Installation
 jupyter --version

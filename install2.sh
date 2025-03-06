@@ -6,7 +6,7 @@ echo "Updating system..."
 sudo apt update && sudo apt upgrade -y
 
 # Install Tools
-sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin smbclient enum4linux enum4linux-ng krb5-user
+sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin smbclient enum4linux enum4linux-ng krb5-user python3-impacket
 
 # Install Basics
 echo "Installing basics..."

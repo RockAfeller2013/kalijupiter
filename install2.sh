@@ -10,6 +10,7 @@ sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin sm
 sudo apt install impacket-scripts -y
 sudo apt install netexec -y
 sudo apt install seclists -y
+sudo apt install seclists curl dnsrecon enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
 
 # Install Basics

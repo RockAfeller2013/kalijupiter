@@ -1,24 +1,24 @@
 #!/bin/bash
+# echo kali | sudo -S curl -sL https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/main/install2.sh | bash
 
 # Update the system
 echo "Updating system..."
 sudo apt update && sudo apt upgrade -y
 
 # Install Tools
-echo "Installing tools..."
-sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin smbclient enum4linux-ng
+sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin smbclient enum4linux  enum4linux-ng
 
 # Install Basics
 echo "Installing basics..."
-sudo apt-get install -y zip certbot python3-pip python3-venv screen awscli
+sudo apt-get install -y zip certbot python3-pip python3-venv zip certbot screen jupyter-notebook
+sudo apt-get install awscli -y
 
 # Install Jupyter and Dependencies
 echo "Installing Jupyter and dependencies..."
-pip3 install --user jupyter pandas openpyxl bash_kernel jupyter-console
-
-# Install Jupyter Bash Kernel
-echo "Installing Jupyter Bash Kernel..."
-python3 -m bash_kernel.install --user
+pip3 install --break-system-packages jupyter pandas openpyxl bash_kernel 
+pip3 install --upgrade --force jupyter-console
+sudo python3 -m bash_kernel.install
+# python3 -m bash_kernel.install --user
 
 # Verify Installation
 echo "Verifying installation..."
@@ -40,5 +40,5 @@ echo "Downloading notebook..."
 wget -O ~/notebook.ipynb "https://raw.githubusercontent.com/RockAfeller2013/kalijupiter/main/notebook.ipynb"
 
 # Start Jupyter Notebook
-echo "Starting Jupyter Notebook..."
-jupyter-notebook --notebook-dir ~/ --no-browser --ip=0.0.0.0 --port=8888
+cp notebook.ipynb /home/kali/
+jupyter-notebook --allow-root  /home/kali/notebook.ipynb  --notebook-dir /home/kali  

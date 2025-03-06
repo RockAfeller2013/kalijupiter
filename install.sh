@@ -5,7 +5,6 @@
 # Tools 
 sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin smbclient enum4linux  enum4linux-ng
 
-
 #Update System
 echo Updating Apt!
 sudo apt-get -y update
@@ -14,25 +13,27 @@ sudo apt-get -y update
 sudo apt-get install -y zip certbot python3-pip
 sudo apt-get install awscli -y
 
-
-#Install Python PIP
-#echo Installing Python PIP!
-#wget -q https://bootstrap.pypa.io/get-pip.py -O get-pip.py
-#sudo python get-pip.py
-#rm get-pip.py
-
 #Install Juypter
 sudo apt install -y python3-pip python3-venv zip certbot screen
 pip3 install --break-system-packages jupyter pandas openpyxl bash_kernel 
 sudo python3 -m bash_kernel.install
 
-# Verify Installation
+# Install Jupyter Notebook
+echo "Installing Jupyter Notebook..."
+sudo apt install -y python3-pip
+pip3 install --upgrade pip
+pip3 install notebook
 
+# Install Jupyter Bash Kernel
+echo "Installing Jupyter Bash Kernel..."
+pip3 install bash_kernel
+python3 -m bash_kernel.install
+
+# Verify Installation
 jupyter --version
 python3 -c "import pandas; print(pandas.__version__)"
 python3 -c "import openpyxl; print(openpyxl.__version__)"
 jupyter kernelspec list
-
 
 # Setup Jupiter
 sudo mkdir /root/.jupyter/ssl

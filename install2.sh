@@ -9,6 +9,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt-get install -y crackmapexec nmap nbtscan enum4linux samba-common-bin smbclient enum4linux enum4linux-ng krb5-user python3-impacket
 sudo apt install impacket-scripts -y
 sudo apt install netexec -y
+sudo apt install seclists -y
 
 
 # Install Basics

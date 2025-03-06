@@ -12,10 +12,12 @@ sudo apt install netexec -y
 sudo apt install seclists -y
 sudo apt install -y seclists curl dnsrecon enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
+# Instlall Metasploit
 sudo apt install -y metasploit-framework
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 msfdb init
+msfconsole --version
 
 # Install Basics
 echo "Installing basics..."

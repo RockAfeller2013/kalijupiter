@@ -18,6 +18,7 @@ sudo docker run hello-world
 
 # Instlall Metasploit
 sudo apt install -y metasploit-framework
+sudo apt update -y
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 msfdb init

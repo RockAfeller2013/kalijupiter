@@ -139,3 +139,10 @@ WORKDIR /app/impacket/examples
 # Default command (can be overridden when running the container)
 CMD ["bash"]
 ---
+
+
+sudo apt-get install xclip
+
+cat file | xclip
+xclip -o
+cat file | xclip -selection clipboard

